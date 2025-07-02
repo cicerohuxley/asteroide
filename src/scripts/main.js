@@ -7,16 +7,20 @@ const canWidth = canvas.width = 1200
 const canHeight = canvas.height = 500
 
 
-const player1 = new Player(canWidth, canHeight)
-function main(){
+const player1 = new Player(canWidth, canHeight, context)
+function main() {
   requestAnimationFrame(main)
-context.fillStyle = "deepskyblue"
-context.fillRect(0, 0, canWidth, canHeight)
+  context.fillStyle = "deepskyblue"
+  context.fillRect(0, 0, canWidth, canHeight)
 
-controls.keyDown
-controls.keyUp
-controls.move()
-player1.drawPlayer(context)
+  controls.keyDown
+  controls.keyUp
+  controls.move()
+  player1.aroundCanvas()
+  if(player1.moving){
+      player1.drawPlayerThruster()
+  }
+  player1.drawPlayer()
 }
 
 
